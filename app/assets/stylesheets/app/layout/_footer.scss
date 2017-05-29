@@ -1,0 +1,14 @@
+.front-footer {
+	background: $primary-color;
+  color: $white;
+  padding: 20px;
+  text-align: center;
+
+  img {
+    width: 100px;
+
+    @include respond-to(xs) {
+      width: 50px;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+!!!
+%html
+	= render 'admin/layouts/head'
+	%body{ 'ng-controller'=>'MainCtrl', class: "#{@appearance.theme_name}-theme" }
+		.waiting
+			= preloader
+
+		- if loggedin?
+			= render 'admin/layouts/sidebar'
+			= render 'admin/layouts/navigation'
+			= render 'admin/layouts/header'
+			= render 'admin/layouts/messages'
+			%main.row.admin{ role: 'main', 'ng-click' => 'sidebarClose()' }
+				= yield
+		- else
+			%main.devise{ style: @appearance.image_background? ? "background-image: url(#{@appearance.image_background})" : nil  }
+				= yield
+
+
+
+
+
